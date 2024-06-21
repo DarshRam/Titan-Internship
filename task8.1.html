@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title> Login Form </title>
+<style>
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 1210px;
+  margin-bottom: 20px;
+}
+.box {
+  width: 300px; 
+  height: 350px;
+  background-color: #ffffff;
+  float: left;
+  margin-left: 250px;
+  border:solid black;
+}
+.box1 {
+  width: 300px; 
+  height: 350px;
+  background-color: #f9f9f9;
+  float: right;
+  margin-right: 330px;
+  border:solid black;
+ 
+}
+.sec
+{
+    padding-left: 50px;
+    margin-top: 20px;
+}
+</style>
+<script>
+function display()
+        {
+        document.getElementById("displayarea").innerHTML = document.getElementById("user").value; 
+        document.getElementById("user").value;
+        document.getElementById("displayarea1").innerHTML = document.getElementById("passv1").value; 
+        document.getElementById("passv1").value;
+        document.getElementById("displayarea2").innerHTML = document.getElementById("cp").value; 
+        document.getElementById("cp").value;
+        document.getElementById("displayarea3").innerHTML = document.getElementById("mail").value; 
+        document.getElementById("mail").value;
+        
+        }
+
+function pass()
+{
+  var username = document.getElementById("username").value;
+  var password = document.getElementById("password").value;
+  document.write("your Username is : " +username+ "<br>");
+  document.write("your password is : " +password+ "<br>");
+}
+</script>
+</head>
+<body>
+    <form id="form">
+      <div class="box">
+        <center><p>SIGN IN</p></center>
+        <div class="sec">
+        <label>Username:</label><br>
+        <input type="text" placeholder="Enter Username" id="username" name="Username"><br></div>
+        <div class="sec">
+        <label>Password:</label><br>
+        <input type="password" placeholder="Enter password" id="password" name="password"><br></div>
+        <div class="sec"><button type="button" onclick="pass()">Login</button></div>
+    </div>
+            <div class="box1">
+                <center><p>REGISTER</p></center>
+                <div class="sec">
+                    <label>Username:</label><br>
+                    <input type="text" placeholder="Enter username" name="Username" id="user" required><br></div>
+                    <div class="sec">
+                    <label>Password:</label><br>
+                    <input type="password" placeholder="Enter password" name="password" id="passv1" required><br></div>
+                    <div class="sec">
+                        <label>Confirm password:</label>:</label><br>
+                        <input type="password" placeholder="Enter password" name="password" id="cp" required><br></div>
+                        <div class="sec">
+                        <label>Email:</label>:</label><br>
+                        <input type="email" placeholder="Enter Email" name="email" id="mail" required><br></div>
+                <div class="sec">
+    <button type="button" id="entry" onclick="display()">Signin</button></div>
+    </div>
+    </form>
+    </body>
+    <br><center><table border="4" id="show"></center></br>
+      <thead>
+        <tr>
+        <td align="center"><b>Username</b></td>
+        <td align="center"><b>Password</b></td>
+        <td align="center"><b>Confirm_password</b></td>
+        <td align="center"><b>email</b></td>
+        </tr> 
+        <tr>
+        <td align="center"><div id="displayarea"></div></td>
+        <td align="center"><div id="displayarea1"></div></td>
+        <td align="center"><div id="displayarea2"></div></td>
+        <td align="center"><div id="displayarea3"></div></td>
+        </tr>
+</thead>
+</table>
+</html>

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title> Login Page </title>
+<style>
+.container {
+border: 1px solid hsl(0, 45%, 27%);
+margin: auto;
+border-radius: 50px 50px;
+padding-left:30px;
+width: 400px;
+height: 300px;
+}
+.sec{
+float:left;
+margin-bottom: 35px;
+margin-left: 20px;
+}
+.error
+{
+  color: red;
+  display: block;
+  position: absolute;
+}
+</style>
+<script> 
+function pass()
+{
+     var username = document.getElementById('user').value;
+     var passwrong = document.getElementById('passvl').value;
+     var email = document.getElementById('mail').value;
+     var phone = document.getElementById('phno').value;
+
+      if (username == '') {
+        document.getElementById('username').innerHTML="username required";
+        return false;
+    }
+    else{
+      document.getElementById('username').innerHTML="";
+    }
+    if (passwrong == '') {
+        document.getElementById('pass').innerHTML="password required";
+        return false;
+    }
+    else{
+      document.getElementById('pass').innerHTML="";
+    }
+    if (email == '') {
+        document.getElementById('mailid').innerHTML="mail required";
+        return false;
+    }
+    else{
+      document.getElementById('mailid').innerHTML="";
+    }
+    if (phone == '') {
+        document.getElementById('phnum').innerHTML="number required";
+        return false;
+    }
+    else{
+      document.getElementById('phnum').innerHTML="";
+}
+var tr = document.createElement('tr');
+var td1 = tr.appendChild(document.createElement('td'));
+var td2 = tr.appendChild(document.createElement('td'));
+var td3 = tr.appendChild(document.createElement('td'));
+var td4 = tr.appendChild(document.createElement('td'));
+td1.innerHTML = username;
+td2.innerHTML = passwrong;
+td3.innerHTML = email;
+td4.innerHTML = phone;
+document.getElementById("show").appendChild(tr);
+}
+  var rIndex,table = document.getElementById('show');
+  for(var i=0;i<table.rows.length;i++)
+  {
+    table.rows[i].onclick = function()
+    {
+      rIndex = this.rowIndex;
+      document.getElementById("username").value=this.cells[0].innerHTML;
+      document.getElementById("passwrong").value=this.cells[1].innerHTML;
+      document.getElementById("email").value=this.cells[2].innerHTML;
+      document.getElementById("phone").value=this.cells[3].innerHTML;
+    };
+
+  }
+
+function edit_row(button) {
+  var row = button.parentNode.parentNode;
+  var cells = row.cells;
+
+  for (var i = 0; i < cells.length - 1; i++) {
+    var cell = cells[i];
+    var cellContent = cell.innerHTML;
+    cell.innerHTML = '<input type="text" value="' + cellContent + '">';
+  }
+
+  var editButton = row.querySelector('button');
+  editButton.innerHTML = 'Save';
+  editButton.onclick = saveRow;
+}
+
+function save_row() {
+  var row = this.parentNode.parentNode;
+  var cells = row.cells;
+
+  for (var i = 0; i < cells.length - 1; i++) {
+    var cell = cells[i];
+    var input = cell.querySelector('input');
+    var inputValue = input.value;
+    cell.innerHTML = inputValue;
+  }
+
+  var editButton = row.querySelector('button');
+  editButton.innerHTML = 'Edit';
+  editButton.onclick = editRow;
+}
+function delete_row(button) {
+ var row = button.parentNode.parentNode;
+  row.remove();
+}
+function add_row()
+{
+  var table = document.getElementById("show");
+  var newRow = table.insertRow(); 
+
+  var cell1 = newRow.insertCell();
+  cell1.innerHTML = "New Row,Column 1"; 
+
+  var cell2 = newRow.insertCell(); 
+  cell2.innerHTML = "New Row,Column 2";
+}
+</script>
+</head>
+<body>
+<form id="myForm" method="GET" name="sample" action="/">
+<div class="container">
+<center><h1>Student Login Form</h1></center>
+<div class="sec">
+<label>Username:</label></br>
+<input type="text" placeholder="Enter Username" name="username" id="user" required>
+<div><span class="error" id="username"></span></div>
+</div>
+<div class="sec">
+<label>Password : </label ></br>
+<input type="password" placeholder="Enter Password" name="password" id="passvl" required>
+<div><span class="error" id="pass"></span></div>
+</div></br>
+<div class="sec">
+    <label>email : </label></br>
+    <input type="email" placeholder="Enter email" name="email" id="mail" required>
+    <div><span class="error" id="mailid"></span></div>
+    </div></br>
+    <div class="sec">
+        <label>phone : </label ></br>
+        <input type="text" placeholder = "Enter phone number" name="phoneno" id="phno" required>
+        <div><span class="error" id="phnum"></span></div></div>
+<center><button type="button" onclick="return pass()">Submit</button></center>
+</div>
+</form>
+</body>
+<br><center><table border="4" id="show"></center></br>
+  <thead>
+  <tr>
+        <th>Username</th>
+        <th>Password</th>
+        <th>Email</th>
+        <th>Phone number</th>
+        <th>Action</th></tr>
+        <tr id="row1">
+        <td id="username_row1">Darshana</td>
+        <td id="password_row1">123456</td>
+        <td id="email_row1">Darshram31@gmail.com</td>
+        <td id="phnum_row1">9150121105</td>
+        <td>
+
+        <input type="button" id="edit_button1" value="edit" class="edit" onclick="edit_row(this)">
+        <input type="button" id="delete_button1" value="delete" class="delete" onclick="delete_row(this)">
+        <input type="button" id="save_button1" value="save" class="save" onclick="save_row()">
+      </td>
+    </tr>
+    <td><input type="text" id="new_username"></td>
+    <td><input type="text" id="new_password"></td>
+    <td><input type="text" id="new_email"></td>
+    <td><input type="text" id="new_phum"></td>
+    <td><input type="button" value="addrow" class="add" onclick="add_row"></td>
+</thead>
+</table>
+</html>
+
+
+

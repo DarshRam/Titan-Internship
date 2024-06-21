@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title> Login Page </title>
+<style>
+.container {
+border: 1px solid hsl(0, 45%, 27%);
+margin: auto;
+border-radius: 50px 50px;
+padding-left:30px;
+width: 400px;
+height: 300px;
+}
+.sec{
+float:left;
+margin-bottom: 35px;
+margin-left: 20px;
+}
+.error
+{
+  color: red;
+  display: block;
+  position: absolute;
+}
+</style>
+<script> 
+function pass()
+{
+     var username = document.getElementById('user').value;
+     var passwrong = document.getElementById('passvl').value;
+     var email = document.getElementById('mail').value;
+     var phone = document.getElementById('phno').value;
+
+      if (username == '') {
+        document.getElementById('username').innerHTML="username required";
+        return false;
+    }
+    else{
+      document.getElementById('username').innerHTML="";
+    }
+    if (passwrong == '') {
+        document.getElementById('pass').innerHTML="password required";
+        return false;
+    }
+    else{
+      document.getElementById('pass').innerHTML="";
+    }
+    if (email == '') {
+        document.getElementById('mailid').innerHTML="mail required";
+        return false;
+    }
+    else{
+      document.getElementById('mailid').innerHTML="";
+    }
+    if (phone == '') {
+        document.getElementById('phnum').innerHTML="number required";
+        return false;
+    }
+    else{
+      document.getElementById('phnum').innerHTML="";
+}
+}
+</script>
+</head>
+<body>
+<form id="myForm" method="GET" action="/">
+<div class="container">
+<center><h1>Student Login Form</h1></center>
+<div class="sec">
+<label>Username:</label></br>
+<input type="text" placeholder="Enter Username" name="username" id="user" required>
+<div><span class="error" id="username"></span></div>
+</div>
+<div class="sec">
+<label>Password : </label ></br>
+<input type="password" placeholder="Enter Password" name="password" id="passvl" required>
+<div><span class="error" id="pass"></span></div>
+</div></br>
+<div class="sec">
+    <label>email : </label></br>
+    <input type="email" placeholder="Enter email" name="email" id="mail" required>
+    <div><span class="error" id="mailid"></span></div>
+    </div></br>
+    <div class="sec">
+        <label>phone : </label ></br>
+        <input type="text" placeholder = "Enter phone number" name="phone no" id="phno" required>
+        <div><span class="error" id="phnum"></span></div>
+        </div>
+<center><button type="button" onclick="return pass()">Submit </button></center>
+</div>
+</form>
+</body>
+</html>
+
+
+

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title> Login Page </title>
+<style>
+.container {
+border: 1px solid hsl(0, 45%, 27%);
+margin: auto;
+border-radius: 50px 50px;
+padding-left:25px;
+width: 400px;
+height: 250px;
+}
+.sec{
+float:left;
+margin-bottom: 20px;
+margin-left: 10px;
+}
+</style>
+<script>
+ function pass()
+ {
+  
+  var username = document.getElementById("user").value;
+  if (username === "") {
+   alert("please enter username");
+  return false;
+}
+var password = document.getElementById("password").value;
+  if (password === "") {
+  alert("please enter password");
+  return false;
+}
+var email = document.getElementById("email").value;
+  if (email === "") {
+  alert("please enter email");
+  return false;
+}
+var phone = document.getElementById("phone").value;
+  if (phone === "") {
+  alert("please enter Phone number");
+  return false;
+}
+}
+function numberonly(input)
+{
+  var num = /[^0-9]/gi;
+  input.value = input.value.replace(num, "");
+}
+function darshana(input)
+{
+  var num = /[^a-z]/gi;
+  input.value = input.value.replace(num, "");
+}
+function alphanumeric(input)
+{
+  var num = /[^A-Za-z0-9]/gi;
+  input.value = input.value.replace(num, "");
+
+}
+function darsh(input)
+{
+  if(password.value.length <=6){
+    alert("Password length should be greater than 6");
+    return false;
+  }
+}
+</script>
+</head>
+<body>
+<form method="post" action="#">
+<div class="container">
+<center><h1>Student Login Form</h1></center>
+<div class="sec">
+<label>Username:</label></br>
+<input type="text" placeholder="Enter Username" name="username" id="user" onkeyup="darshana(this)"required  >
+</div>
+<div class="sec">
+<label>Password : </label ></br>
+<input type="password" placeholder="Enter Password" name="password" id="password"  onkeyup="alphanumeric(this)" onmouseleave="darsh()" required>
+</div></br>
+<div class="sec">
+    <label>email : </label></br>
+    <input type="email" placeholder="Enter email" name="email" id="email" required>
+    </div></br>
+    <div class="sec">
+        <label>phone : </label ></br>
+        <input type="text" placeholder="Enter phone number" name="phone no" id="phone" onkeyup="numberonly(this)"  required>
+        </div>
+<center><button type="button" onclick="return pass()">Submit</button></center>
+</div>
+</form>
+</body>
+</html>
